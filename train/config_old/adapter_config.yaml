@@ -1,0 +1,66 @@
+dtype: "bfloat16"
+
+model:
+  text_cond_attn: false
+  add_cond_attn: false
+  union_cond_attn: true
+  double_use_condition: false
+  single_use_condition: false
+  cond_cond_cross_attn: false
+  train_partial_text_lora: false  # dblock txt lora
+  train_partial_text_lora_layers: "qkv_toout"
+  train_partial_latent_lora: false  # dblock latent lora
+  train_partial_latent_lora_layers: "qkv_toout"
+  train_partial_lora: false
+  train_partial_lora_layers: "qkv_projout"
+
+  use_dit_lora: true
+  latent_lora: false
+  text_lora: true
+  sblock_lora: true
+  use_pretrained_dit_lora: true
+
+  use_condition_dblock_lora: false
+  use_condition_sblock_lora: false
+  use_pretrained_condition_lora: false
+
+  freeze_mod_adapter: false
+  freeze_txt_lora: false
+  freeze_single_lora: false
+  use_pretrained_dit_single_lora: false
+
+  pos_offset_type: "diagonal"
+
+  modulation:
+    uncond: true
+    use_clip: true
+    use_vae: false
+    use_dit: false
+    use_text_mod: true
+    use_img_mod: false
+    pass_vae: true
+    user_token_num: 30
+    max_text_len: 128
+    adapter_type: "clip_adapter"
+    adapter_layers: 3
+    adapter_width: 3072
+    out_dim: 3072
+    use_perblock_adapter: true
+    per_block_adapter_layers: 3
+    per_block_adapter_width: 3072
+    per_block_adapter_single_blocks: 0
+    eos_exclude: false
+
+  dit_lora_config:
+    r: 128
+    lora_alpha: 128
+    init_lora_weights: "gaussian"
+    target_modules: "(.*x_embedder|.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1_context\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_k|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_q|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_v|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.add_q_proj|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.add_k_proj|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.add_v_proj|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_add_out|.*(?<!single_)transformer_blocks\\.[0-9]+\\.ff_context\\.net\\.2|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_out\\.0|.*(?<!single_)transformer_blocks\\.[0-9]+\\.ff\\.net\\.2|.*single_transformer_blocks\\.[0-9]+\\.norm\\.linear|.*single_transformer_blocks\\.[0-9]+\\.proj_mlp|.*single_transformer_blocks\\.[0-9]+\\.proj_out|.*single_transformer_blocks\\.[0-9]+\\.attn.to_k|.*single_transformer_blocks\\.[0-9]+\\.attn.to_q|.*single_transformer_blocks\\.[0-9]+\\.attn.to_v|.*single_transformer_blocks\\.[0-9]+\\.attn.to_out)"
+
+  dit_quant: "int8-quanto"
+
+train:
+  dataset:
+    condition_pad_to: "square"
+    val_condition_size: 256
+    val_target_size: 512

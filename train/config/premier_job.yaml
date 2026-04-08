@@ -1,0 +1,61 @@
+flux_path: "/nfs-27/wangzihao/dxm/wangzihao_dxm/.cache/huggingface/hub/FLUX.1-dev"
+json_path: "/nfs-27/wangzihao/dxm/wangzihao_dxm/pickapic_dxm_coco/json/user.json"
+#lora_path: "runs/redux_image_no_redux_text/20250726-125938/ckpt/5000"
+dtype: "bfloat16"
+adapter_config_path: "/nfs-27/wangzihao/dxm/wangzihao_dxm/OminiControl/train/config/XVerse_config_demo.yaml"
+pkl_path: ""
+data_path: ""
+#model_path: "/nfs-165/wangzihao/OminiControl/runs/xverse_test2_cross_dips_ori/20250910-203532/ckpt/400000"
+train:
+  accumulate_grad_batches: 1
+  dataloader_workers: 5
+  save_interval: 10000
+  sample_interval: 10000000
+  max_steps: 1000000
+  gradient_checkpointing: true # (Turn off for faster training)
+  save_path: "/nfs-165/wangzihao/OminiControl/runs/xverse_test2_cross_dips_ori"
+  dips: true
+  dips_stable: false
+  batch_size: 2
+  user_num: 1000
+  # Specify the type of condition to use.
+  # Options: ["canny", "coloring", "deblurring", "depth", "depth_pred", "fill"]
+  dataset:
+    type: "img"
+    save_dir: "omini"
+    cache_name: "data_512_2M"
+    condition_size:
+      - 512
+      - 512
+    target_size:
+      - 512
+      - 512
+    drop_user_prob: 0
+    drop_text_prob: 0
+
+
+  wandb:
+    project: "OminiControl"
+
+  lora_config:
+    r: 4
+    lora_alpha: 4
+    init_lora_weights: "gaussian"
+    target_modules: "(.*x_embedder|.*context_embedder|.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1_context\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_k|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_q|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_v|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.add_k_proj|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.add_q_proj|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.add_v_proj|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_out\\.0|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_add_out|.*(?<!single_)transformer_blocks\\.[0-9]+\\.ff\\.net\\.2|.*(?<!single_)transformer_blocks\\.[0-9]+\\.ff_context\\.net\\.2|.*single_transformer_blocks\\.[0-9]+\\.norm\\.linear|.*single_transformer_blocks\\.[0-9]+\\.proj_mlp|.*single_transformer_blocks\\.[0-9]+\\.proj_out|.*single_transformer_blocks\\.[0-9]+\\.attn.to_k|.*single_transformer_blocks\\.[0-9]+\\.attn.to_q|.*single_transformer_blocks\\.[0-9]+\\.attn.to_v|.*single_transformer_blocks\\.[0-9]+\\.attn.to_out)"
+    # (Uncomment the following lines to train less parameters while keeping the similar performance)
+    # target_modules: "(.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_k|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_q|.*single_transformer_blocks\\.[0-9]+\\.norm\\.linear|.*single_transformer_blocks\\.[0-9]+\\.attn.to_k|.*single_transformer_blocks\\.[0-9]+\\.attn.to_q)"
+
+  optimizer:
+    type: "Prodigy"
+    params:
+      lr: 1
+      use_bias_correction: true
+      safeguard_warmup: true
+      weight_decay: 0.0001
+
+  # (To use AdamW Optimizer, uncomment the following lines)
+#  optimizer:
+#   type: AdamW
+#   params:
+#     lr: 0.0001
+#     weight_decay: 0.0001
