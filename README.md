@@ -27,7 +27,7 @@ Dynamically generates a context-aware modulation direction for each text token, 
   - ⚡ **Zero-Cost Inference**: Adds only ~1 second inference overhead, independent of resolution.
   - ⏱️ **Fast Training**: Single-user adaptation takes approximately 30 minutes.
 ## Quick Start
-### Setup (Optional)
+### Setup 
 1. **Environment setup**
 ```bash
 conda create -n premier python=3.12
@@ -76,8 +76,8 @@ During training of user preference embeddings, the data must be split into **his
 ## Generated samples
 
 
-<div float="left">
-  <img src='./assets/more_sample.png' width=''/>
+<div float="center">
+  <img src='./assets/more_sample.png' width='90%'/>
   
 </div>
 
