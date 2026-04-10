@@ -14,6 +14,8 @@
 > <br>
 > Harbin Institute of Technology, Duxiaoman
 > <br>
+> 
+<img src='./assets/fig_method.png'>
 
 ## Features
 
@@ -26,6 +28,8 @@ Dynamically generates a context-aware modulation direction for each text token, 
   - 💾 **Minimal Storage**: Single-user preference embedding occupies only ~61 KB
   - ⚡ **Zero-Cost Inference**: Adds only ~1 second inference overhead, independent of resolution.
   - ⏱️ **Fast Training**: Single-user adaptation takes approximately 30 minutes.
+  
+  
 ## Quick Start
 ### Setup 
 1. **Environment setup**
@@ -77,8 +81,7 @@ During training of user preference embeddings, the data must be split into **his
 
 
 <div float="center">
-  <img src='./assets/more_sample.png' width='90%'/>
-  
+  <img src='./assets/result_compare.png' width='%'/>
 </div>
 
 ## Models
@@ -90,7 +93,7 @@ Model weights are about to be uploaded.
 - [ ] Release the model weights.
 
 ## Acknowledgment
-The work was supported by National Natural Science Foundation of China under Grant No.62371164.
+The work was supported by National Natural Science Foundation of China under Grant No 62371164.
 Thanks to the outstanding work of [OminiControl](https://github.com/Yuanshi9815/OminiControl) and [XVerse](https://github.com/bytedance/XVerse), and to the data provided by [PrefGen](https://prefgen.github.io/).
 ## Citation
 ```
