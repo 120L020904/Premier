@@ -1,4 +1,4 @@
-# Premier
+# Premier: Personalized Preference Modulation with Learnable User Embedding in Text-to-Image Generation(CVPR 2026 Highlight)
 
 
 <img src='./assets/teaser.png' width='100%' />
