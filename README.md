@@ -1,20 +1,19 @@
-# Premier: Personalized Preference Modulation with Learnable User Embedding in Text-to-Image Generation(🎉 CVPR 2026 Highlight 🎉)
+<div align="center">
 
+# Premier: Personalized Preference Modulation with Learnable User Embedding in Text-to-Image Generation (🎉 CVPR 2026 Highlight 🎉)
 
 <img src='./assets/teaser.png' width='100%' />
 <br>
-<a href="https://github.com/120L020904/Premier"><img src="https://img.shields.io/badge/GitHub-Premier-blue.svg?logo=github&" alt="GitHub"></a>
-<!-- <a href="https://huggingface.co/datasets/Yuanshi/Subjects200K"><img src="https://img.shields.io/badge/🤗_HuggingFace-Premier-ffbd45.svg" alt="HuggingFace"></a> -->
-<a href="https://arxiv.org/abs/2603.20725"><img src="https://img.shields.io/badge/ariXv-Premier-A42C25.svg" alt="arXiv"></a>
+<a href="https://premier-img.github.io/"><img src="https://img.shields.io/badge/Project-Page-ff69b4.svg?logo=github" alt="Project Page"></a>
+<a href="https://github.com/120L020904/Premier"><img src="https://img.shields.io/badge/GitHub-Premier-blue.svg?logo=github" alt="GitHub"></a>
+<a href="https://huggingface.co/pino10010/Premier"><img src="https://img.shields.io/badge/🤗_HuggingFace-Premier-ffbd45.svg" alt="HuggingFace"></a>
+<a href="https://arxiv.org/abs/2603.20725"><img src="https://img.shields.io/badge/arXiv-Premier-A42C25.svg" alt="arXiv"></a>
 
+**Zihao Wang**, **Yuxiang Wei**, **Xinpeng Zhou**, **Tianyu Zhang**, **Tao Liang**, **Yalong Bai**, **Hongzhi Zhang**, **Wangmeng Zuo**
 
-> **Premier: Personalized Preference Modulation with Learnable User Embedding in Text-to-Image Generation**
-> <br>
-> Zihao Wang, Yuxiang Wei, Xinpeng Zhou, Tianyu Zhang, Tao Liang, Yalong Bai, Hongzhi Zhang, Wangmeng Zuo
-> <br>
-> Harbin Institute of Technology, Duxiaoman
-> <br>
-> 
+Harbin Institute of Technology, Duxiaoman
+
+</div>
 <img src='./assets/fig_method.png'>
 
 ## Features
@@ -25,8 +24,8 @@ Initializes an independent trainable vector for each user, jointly optimized via
 Dynamically generates a context-aware modulation direction for each text token, enabling fine-grained, semantically aligned preference injection.
 - 📝 **Strong Text Instruction-Following**: Compared to full-parameter/low-rank fine-tuning methods like LoRA, Premier injects preferences while minimally compromising the base model's ability to parse and generate from complex prompts.
 - 📊 **Lightweight & Efficiency**
-  - 💾 **Minimal Storage**: Single-user preference embedding occupies only ~61 KB
-  - ⚡ **Zero-Cost Inference**: Adds only ~1 second inference overhead, independent of resolution.
+  - 💾 **Minimal Storage**: Single-user preference embedding occupies only ≈61 KB
+  - ⚡ **Zero-Cost Inference**: Adds only ≈1 second inference overhead, independent of resolution.
   - ⏱️ **Fast Training**: Single-user adaptation takes approximately 30 minutes.
   
   
@@ -86,11 +85,13 @@ During training of user preference embeddings, the data must be split into **his
 
 ## Models
 
-Model weights are about to be uploaded.
+| Model | Link |
+|-------|------|
+| Premier (mod_adapter + user_embedding) | [🤗 pino10010/Premier](https://huggingface.co/pino10010/Premier) |
 
 
 ## To-do
-- [ ] Release the model weights.
+- [x] Release the model weights.
 
 ## Acknowledgment
 The work was supported by National Natural Science Foundation of China under Grant No 62371164.
