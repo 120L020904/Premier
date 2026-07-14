@@ -2,16 +2,16 @@
 
 # Premier: Personalized Preference Modulation with Learnable User Embedding in Text-to-Image Generation (🎉 CVPR 2026 Highlight 🎉)
 
-<img src='./assets/teaser.png' width='100%' />
-<br>
+**Zihao Wang**, **Yuxiang Wei**, **Xinpeng Zhou**, **Tianyu Zhang**, **Tao Liang**, **Yalong Bai**, **Hongzhi Zhang**, **Wangmeng Zuo**
+
+Harbin Institute of Technology, Duxiaoman
+
 <a href="https://premier-img.github.io/"><img src="https://img.shields.io/badge/Project-Page-ff69b4.svg?logo=github" alt="Project Page"></a>
 <a href="https://github.com/120L020904/Premier"><img src="https://img.shields.io/badge/GitHub-Premier-blue.svg?logo=github" alt="GitHub"></a>
 <a href="https://huggingface.co/pino10010/Premier"><img src="https://img.shields.io/badge/🤗_HuggingFace-Premier-ffbd45.svg" alt="HuggingFace"></a>
 <a href="https://arxiv.org/abs/2603.20725"><img src="https://img.shields.io/badge/arXiv-Premier-A42C25.svg" alt="arXiv"></a>
 
-**Zihao Wang**, **Yuxiang Wei**, **Xinpeng Zhou**, **Tianyu Zhang**, **Tao Liang**, **Yalong Bai**, **Hongzhi Zhang**, **Wangmeng Zuo**
-
-Harbin Institute of Technology, Duxiaoman
+<img src='./assets/teaser.png' width='100%' />
 
 </div>
 <img src='./assets/fig_method.png'>
